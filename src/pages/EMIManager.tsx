@@ -177,7 +177,7 @@ export default function EMIManager() {
         actionIcon={<Plus className="h-4 w-4" />}
       />
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <StatCard
           label="Monthly EMI Load"
           value={formatCurrency(totalMonthlyEMI)}
@@ -343,8 +343,8 @@ export default function EMIManager() {
             <DialogTitle>{editingEMI ? 'Edit EMI' : 'Add EMI'}</DialogTitle>
           </DialogHeader>
 
-          <div className="grid grid-cols-2 gap-4 py-2">
-            <div className="col-span-2 space-y-1.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-2">
+            <div className="col-span-1 sm:col-span-2 space-y-1.5">
               <Label>Family Member *</Label>
               <Select value={formData.memberId} onValueChange={(v) => updateField('memberId', v)}>
                 <SelectTrigger>
@@ -476,7 +476,7 @@ export default function EMIManager() {
               </Select>
             </div>
 
-            <div className="col-span-2 space-y-1.5">
+            <div className="col-span-1 sm:col-span-2 space-y-1.5">
               <Label htmlFor="emi-notes">Notes</Label>
               <Textarea
                 id="emi-notes"

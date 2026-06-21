@@ -69,7 +69,7 @@ export function StatCard({
 
           <div className="mt-4">
             <p className="text-sm text-muted-foreground">{label}</p>
-            <p className="mt-1 text-2xl font-bold tracking-tight text-foreground">
+            <p className="mt-1 text-lg sm:text-2xl font-bold tracking-tight text-foreground break-all">
               {prefix && (
                 <span className="text-lg font-semibold text-muted-foreground mr-0.5">
                   {prefix}

@@ -168,7 +168,7 @@ export default function Settings() {
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label>Currency</Label>
               <Select value={settings.currency} onValueChange={handleCurrencyChange}>

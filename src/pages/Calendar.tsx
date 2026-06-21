@@ -139,7 +139,7 @@ export default function Calendar() {
         description="View upcoming payments and financial events."
       />
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <StatCard
           label="Monthly EMIs"
           value={formatCurrency(totalEMIDue)}

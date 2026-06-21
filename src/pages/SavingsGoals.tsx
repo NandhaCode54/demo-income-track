@@ -181,7 +181,7 @@ export default function SavingsGoals() {
         actionIcon={<Plus className="h-4 w-4" />}
       />
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <StatCard
           label="Total Saved"
           value={formatCurrency(totalSaved)}
@@ -271,14 +271,14 @@ export default function SavingsGoals() {
                     {/* Amounts */}
                     <div className="flex items-end justify-between mb-2">
                       <div>
-                        <p className="text-2xl font-bold text-foreground">
+                        <p className="text-lg sm:text-2xl font-bold text-foreground">
                           {formatCurrency(goal.currentAmount)}
                         </p>
                         <p className="text-xs text-muted-foreground">
                           of {formatCurrency(goal.targetAmount)}
                         </p>
                       </div>
-                      <p className="text-2xl font-bold" style={{ color: goal.color }}>
+                      <p className="text-lg sm:text-2xl font-bold" style={{ color: goal.color }}>
                         {progress}%
                       </p>
                     </div>
@@ -394,7 +394,7 @@ export default function SavingsGoals() {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
                 <Label htmlFor="goal-target">Target Amount (₹) *</Label>
                 <Input
