@@ -80,15 +80,13 @@ export function Header({ onMenuClick, title }: HeaderProps) {
 
         <div className="flex items-center gap-1.5">
           {/* Mobile search */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden h-9 w-9"
+          <button
+            className="md:hidden flex items-center justify-center h-8 w-8 rounded-full border border-border bg-muted/60 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
             onClick={() => setSearchOpen(true)}
             aria-label="Search"
           >
             <Search className="h-4 w-4" />
-          </Button>
+          </button>
 
           {/* Theme toggle */}
           <Button

@@ -278,7 +278,7 @@ export default function Expenses() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
                       transition={{ duration: 0.2 }}
-                      className="flex items-center gap-3 px-5 py-4 hover:bg-muted/40 transition-colors"
+                      className="flex items-center gap-2 px-3 py-3 sm:px-5 sm:py-4 hover:bg-muted/40 transition-colors"
                     >
                       <div
                         className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
@@ -288,15 +288,15 @@ export default function Expenses() {
                       </div>
 
                       <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <p className="text-sm font-medium text-foreground truncate">
+                        <div className="flex items-center gap-1.5 flex-wrap min-w-0">
+                          <p className="text-sm font-medium text-foreground truncate max-w-[120px] sm:max-w-none">
                             {expense.description}
                           </p>
-                          <Badge variant="secondary" className="text-[10px] shrink-0">
+                          <Badge variant="secondary" className="text-[10px] shrink-0 hidden xs:inline-flex sm:inline-flex">
                             {expense.category}
                           </Badge>
                           {expense.isRecurring && (
-                            <Badge variant="outline" className="text-[10px] gap-1 shrink-0">
+                            <Badge variant="outline" className="text-[10px] gap-1 shrink-0 hidden sm:inline-flex">
                               <RefreshCw className="h-2.5 w-2.5" />
                               Recurring
                             </Badge>
@@ -309,16 +309,20 @@ export default function Expenses() {
                         </p>
                       </div>
 
-                      <div className="flex items-center gap-3 shrink-0">
-                        {member && <MemberAvatar member={member} size="sm" showTooltip />}
-                        <span className="text-sm font-bold text-red-500 min-w-[80px] text-right">
+                      <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+                        {member && (
+                          <span className="hidden sm:block">
+                            <MemberAvatar member={member} size="sm" showTooltip />
+                          </span>
+                        )}
+                        <span className="text-sm font-bold text-red-500 text-right whitespace-nowrap">
                           -{formatCurrency(expense.amount)}
                         </span>
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center">
                           <Button
                             variant="ghost"
                             size="icon"
-                            className="h-8 w-8 text-muted-foreground hover:text-foreground"
+                            className="h-7 w-7 text-muted-foreground hover:text-foreground"
                             onClick={() => openEdit(expense)}
                           >
                             <Pencil className="h-3.5 w-3.5" />
@@ -326,7 +330,7 @@ export default function Expenses() {
                           <Button
                             variant="ghost"
                             size="icon"
-                            className="h-8 w-8 text-muted-foreground hover:text-destructive"
+                            className="h-7 w-7 text-muted-foreground hover:text-destructive"
                             onClick={() => setDeleteTarget(expense)}
                           >
                             <Trash2 className="h-3.5 w-3.5" />

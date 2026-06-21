@@ -107,28 +107,28 @@ function MemberCard({
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-2 mb-5">
-          <div className="rounded-lg bg-muted/60 px-2 py-3 text-center">
-            <p className="text-[10px] text-muted-foreground leading-tight mb-1">
-              Monthly Income
+        <div className="grid grid-cols-3 gap-1.5 mb-5">
+          <div className="rounded-lg bg-muted/60 px-1.5 py-2.5 text-center">
+            <p className="text-[9px] text-muted-foreground leading-tight mb-1 whitespace-nowrap">
+              Income
             </p>
-            <p className="text-xs font-bold text-foreground">
+            <p className="text-[11px] font-bold text-foreground leading-tight">
               {formatCurrency(member.monthlyIncome)}
             </p>
           </div>
-          <div className="rounded-lg bg-muted/60 px-2 py-3 text-center">
-            <p className="text-[10px] text-muted-foreground leading-tight mb-1">
-              Total Expenses
+          <div className="rounded-lg bg-muted/60 px-1.5 py-2.5 text-center">
+            <p className="text-[9px] text-muted-foreground leading-tight mb-1 whitespace-nowrap">
+              Expenses
             </p>
-            <p className="text-xs font-bold text-foreground">
+            <p className="text-[11px] font-bold text-foreground leading-tight">
               {formatCurrency(totalExpenses)}
             </p>
           </div>
-          <div className="rounded-lg bg-muted/60 px-2 py-3 text-center">
-            <p className="text-[10px] text-muted-foreground leading-tight mb-1">
-              Contribution
+          <div className="rounded-lg bg-muted/60 px-1.5 py-2.5 text-center">
+            <p className="text-[9px] text-muted-foreground leading-tight mb-1 whitespace-nowrap">
+              Share
             </p>
-            <p className="text-xs font-bold text-foreground">{contribution}%</p>
+            <p className="text-[11px] font-bold text-foreground leading-tight">{contribution}%</p>
           </div>
         </div>
 
@@ -325,7 +325,7 @@ export default function FamilyMembers() {
           actionLabel="Add Member"
         />
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredMembers.map((member) => (
             <MemberCard
               key={member.id}
