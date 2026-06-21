@@ -17,6 +17,8 @@ import {
 } from 'lucide-react'
 import { NAV_ITEMS } from '@/constants'
 import { cn } from '@/utils/cn'
+import { useAuth } from '@/contexts/AuthContext'
+import { getInitials } from '@/utils/formatters'
 
 const ICON_MAP: Record<string, React.ElementType> = {
   LayoutDashboard,
@@ -38,6 +40,9 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isMobileOpen, onClose }: SidebarProps) {
+  const { session } = useAuth()
+  const initials = session ? getInitials(session.name) : 'FF'
+
   return (
     <>
       {/* Mobile overlay backdrop */}
@@ -145,15 +150,18 @@ export function Sidebar({ isMobileOpen, onClose }: SidebarProps) {
         {/* Bottom user section */}
         <div className="border-t border-border px-4 py-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-purple-500 text-xs font-bold text-white">
-              FF
+            <div
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
+              style={{ backgroundColor: session?.color ?? '#6366F1' }}
+            >
+              {initials}
             </div>
             <div className="min-w-0">
               <p className="text-xs font-semibold text-foreground truncate">
-                Family Finance
+                {session?.name ?? 'Family Finance'}
               </p>
-              <p className="text-[10px] text-muted-foreground truncate">
-                Personal Account
+              <p className="text-[10px] text-muted-foreground truncate capitalize">
+                {session?.role ?? 'member'}
               </p>
             </div>
           </div>

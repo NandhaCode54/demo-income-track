@@ -1,5 +1,41 @@
 export type Theme = 'light' | 'dark' | 'system'
 
+export type UserRole = 'admin' | 'member'
+
+export interface User {
+  id: string
+  name: string
+  email: string
+  passwordHash: string
+  role: UserRole
+  color: string
+  familyMemberId?: string
+  createdAt: string
+  updatedAt: string
+}
+
+export interface AuthSession {
+  userId: string
+  email: string
+  name: string
+  role: UserRole
+  color: string
+  familyMemberId?: string
+}
+
+export type NotificationType = 'emi' | 'budget' | 'goal' | 'info'
+export type NotificationSeverity = 'info' | 'warning' | 'error' | 'success'
+
+export interface AppNotification {
+  id: string
+  type: NotificationType
+  severity: NotificationSeverity
+  title: string
+  message: string
+  link?: string
+  createdAt: string
+}
+
 export type MemberRole = 'Parent' | 'Child' | 'Spouse' | 'Guardian' | 'Other'
 
 export interface FamilyMember {
