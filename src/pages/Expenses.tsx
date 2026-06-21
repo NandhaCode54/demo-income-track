@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Plus, Pencil, Trash2, TrendingDown, Filter, RefreshCw } from 'lucide-react'
+import {
+  Plus, Pencil, Trash2, TrendingDown, Filter, RefreshCw,
+  Utensils, Car, ShoppingBag, Tv, HeartPulse, GraduationCap,
+  Zap, Home, Shield, TrendingUp, Smile, Plane, Gift, MoreHorizontal,
+} from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import * as LucideIcons from 'lucide-react'
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter,
 } from '@/components/ui/dialog'
@@ -27,9 +30,14 @@ import { useToast } from '@/hooks/useToast'
 import { EXPENSE_CATEGORIES, CATEGORY_ICONS, CATEGORY_COLORS } from '@/constants'
 import type { Expense, ExpenseCategory, FamilyMember } from '@/types'
 
+const EXPENSE_ICON_MAP: Record<string, React.ElementType> = {
+  Utensils, Car, ShoppingBag, Tv, HeartPulse, GraduationCap,
+  Zap, Home, Shield, TrendingUp, Smile, Plane, Gift, MoreHorizontal,
+}
+
 function getCategoryIcon(category: string): React.ElementType {
   const name = CATEGORY_ICONS[category as ExpenseCategory] ?? 'MoreHorizontal'
-  return (LucideIcons as Record<string, React.ElementType>)[name] ?? LucideIcons.MoreHorizontal
+  return EXPENSE_ICON_MAP[name] ?? MoreHorizontal
 }
 
 interface ExpenseFormData {

@@ -10,6 +10,7 @@ interface EmptyStateProps {
   action?: () => void
   actionLabel?: string
   className?: string
+  compact?: boolean
 }
 
 export function EmptyState({
@@ -19,6 +20,7 @@ export function EmptyState({
   action,
   actionLabel,
   className,
+  compact,
 }: EmptyStateProps) {
   return (
     <motion.div
@@ -26,17 +28,26 @@ export function EmptyState({
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
       className={cn(
-        'flex flex-col items-center justify-center py-16 px-6 text-center',
+        'flex flex-col items-center justify-center px-6 text-center',
+        compact ? 'py-8' : 'py-16',
         className,
       )}
     >
-      {/* Icon wrapper */}
-      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-muted text-muted-foreground mb-5">
+      <div className={cn(
+        'flex items-center justify-center rounded-2xl bg-muted text-muted-foreground mb-4',
+        compact ? 'h-10 w-10' : 'h-16 w-16 mb-5',
+      )}>
         {icon}
       </div>
 
-      <h3 className="text-base font-semibold text-foreground mb-1.5">{title}</h3>
-      <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
+      <h3 className={cn(
+        'font-semibold text-foreground mb-1.5',
+        compact ? 'text-sm' : 'text-base',
+      )}>{title}</h3>
+      <p className={cn(
+        'text-muted-foreground max-w-xs leading-relaxed',
+        compact ? 'text-xs' : 'text-sm',
+      )}>
         {description}
       </p>
 
