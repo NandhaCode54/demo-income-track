@@ -1,0 +1,6 @@
+export { familyMemberService } from './familyMember.service'
+export { incomeService } from './income.service'
+export { expenseService } from './expense.service'
+export { emiService } from './emi.service'
+export { budgetService } from './budget.service'
+export { savingsGoalService } from './savingsGoal.service'
