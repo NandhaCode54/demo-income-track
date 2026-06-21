@@ -41,37 +41,40 @@ export function StatCard({
       transition={{ duration: 0.35, ease: 'easeOut' }}
     >
       <Card className={cn('overflow-hidden', className)}>
-        <CardContent className="p-5">
-          <div className="flex items-start justify-between gap-3">
+        <CardContent className="p-3 sm:p-5">
+          <div className="flex items-start justify-between gap-2">
             {/* Icon */}
             <div
               className={cn(
-                'flex h-11 w-11 shrink-0 items-center justify-center rounded-xl',
+                'flex h-8 w-8 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-lg sm:rounded-xl',
                 iconBg,
               )}
             >
-              {icon}
+              {/* Scale icon down on mobile via wrapper */}
+              <span className="[&>svg]:h-4 [&>svg]:w-4 sm:[&>svg]:h-5 sm:[&>svg]:w-5">
+                {icon}
+              </span>
             </div>
 
             {/* Trend badge */}
             {trend && trendValue && (
               <div
                 className={cn(
-                  'flex items-center gap-1 text-xs font-semibold',
+                  'flex items-center gap-0.5 text-[10px] sm:text-xs font-semibold',
                   trendColor,
                 )}
               >
-                <TrendIcon className="h-3 w-3" />
+                <TrendIcon className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
                 <span>{trendValue}</span>
               </div>
             )}
           </div>
 
-          <div className="mt-4">
-            <p className="text-sm text-muted-foreground">{label}</p>
-            <p className="mt-1 text-lg sm:text-2xl font-bold tracking-tight text-foreground break-all">
+          <div className="mt-2 sm:mt-4">
+            <p className="text-[11px] sm:text-sm text-muted-foreground leading-tight">{label}</p>
+            <p className="mt-0.5 sm:mt-1 text-sm sm:text-2xl font-bold tracking-tight text-foreground truncate">
               {prefix && (
-                <span className="text-lg font-semibold text-muted-foreground mr-0.5">
+                <span className="text-xs sm:text-lg font-semibold text-muted-foreground mr-0.5">
                   {prefix}
                 </span>
               )}
